@@ -6,15 +6,14 @@ function App() {
   const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/jokes')
+    axios.get('   /api/jokes')
       .then((response) => {
         setJokes(response.data);
       })
       .catch((e) => {
         console.log('Error occurred in the code:', e);
       });
-  }, []); // ✅ added empty array to run only once
-
+  }, []); 
   return (
     <>
       <h1>Hello main ne vite se app bna li hai</h1>
