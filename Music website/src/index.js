@@ -3,11 +3,22 @@ import dotenv from "dotenv";
     // path:"./env"
 // });
 import ConnectDB from "./db/index.js"
+import { app } from "./app.js";
 dotenv.config({path:"./env"})
 
 
 
-ConnectDB();
+ConnectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 3000 , ()=>{
+        console.log(`app is start at the port number ${process.env.PORT}`);
+        
+    })
+})
+.catch((err) =>{
+    console.log('Database connection error failed');
+})
+;
 // import express from "express";
 // const app = express();
 // (()=>{
